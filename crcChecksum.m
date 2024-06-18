@@ -70,6 +70,9 @@ function checksum = cal_crcChecksum (TB, crc_poly)
         checksum = 0;
     else    
         checksum = A_temp;
+        if (length(checksum) < (crc_poly_len -1))
+            checksum = [zeros(1, crc_poly_len-length(checksum)-1), checksum];
+        end
     end
 end
     
